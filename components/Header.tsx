@@ -78,25 +78,13 @@ export default function Header() {
           ))}
 
           {/* Language Switcher */}
-          <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#747878]">
-            <button
-              onClick={() => setLanguage("id")}
-              className={`hover:text-[#1c1b1b] transition-colors duration-200 ${
-                language === "id" ? "text-[#1c1b1b] underline underline-offset-4" : ""
-              }`}
-            >
-              ID
-            </button>
-            <span className="text-[#c4c7c7] select-none">/</span>
-            <button
-              onClick={() => setLanguage("en")}
-              className={`hover:text-[#1c1b1b] transition-colors duration-200 ${
-                language === "en" ? "text-[#1c1b1b] underline underline-offset-4" : ""
-              }`}
-            >
-              EN
-            </button>
-          </div>
+          <button
+            onClick={() => setLanguage(language === "id" ? "en" : "id")}
+            className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#747878] hover:text-[#1c1b1b] transition-colors duration-200"
+            aria-label={language === "id" ? "Switch language to English" : "Ubah bahasa ke Indonesia"}
+          >
+            {language === "id" ? "EN" : "ID"}
+          </button>
 
           <a
             href="#socials"
@@ -107,29 +95,41 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-2 group"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          <span
-            className={`block w-6 h-px bg-[#1c1b1b] transition-all duration-300 ${
-              menuOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-px bg-[#1c1b1b] transition-all duration-300 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-px bg-[#1c1b1b] transition-all duration-300 ${
-              menuOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
-        </button>
+        {/* Mobile Actions (Language Switcher + Hamburg Menu) */}
+        <div className="md:hidden flex items-center gap-4">
+          {/* Mobile Language Switcher */}
+          <button
+            onClick={() => setLanguage(language === "id" ? "en" : "id")}
+            className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#747878] hover:text-[#1c1b1b] transition-colors duration-200"
+            aria-label={language === "id" ? "Switch language to English" : "Ubah bahasa ke Indonesia"}
+          >
+            {language === "id" ? "EN" : "ID"}
+          </button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="flex flex-col gap-1.5 p-2 group"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span
+              className={`block w-6 h-px bg-[#1c1b1b] transition-all duration-300 ${
+                menuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block w-6 h-px bg-[#1c1b1b] transition-all duration-300 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block w-6 h-px bg-[#1c1b1b] transition-all duration-300 ${
+                menuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav Drawer */}
@@ -163,27 +163,6 @@ export default function Header() {
               >
                 {t.nav.contact}
               </a>
-
-              {/* Mobile Language Switcher */}
-              <div className="flex items-center justify-center gap-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#747878] mt-4 pt-4 border-t border-[#e5e2e1]">
-                <button
-                  onClick={() => setLanguage("id")}
-                  className={`hover:text-[#1c1b1b] py-2 transition-colors duration-200 ${
-                    language === "id" ? "text-[#1c1b1b] underline underline-offset-4" : ""
-                  }`}
-                >
-                  ID
-                </button>
-                <span className="text-[#c4c7c7] select-none">|</span>
-                <button
-                  onClick={() => setLanguage("en")}
-                  className={`hover:text-[#1c1b1b] py-2 transition-colors duration-200 ${
-                    language === "en" ? "text-[#1c1b1b] underline underline-offset-4" : ""
-                  }`}
-                >
-                  EN
-                </button>
-              </div>
             </nav>
           </motion.div>
         )}
