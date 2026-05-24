@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Fonts ────────────────────────────────────────────────── */
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* ── Colors ───────────────────────────────────────────────── */
+  --color-bg: #fdf8f8;
+  --color-surface-low: #f7f3f2;
+  --color-surface-mid: #f1edec;
+  --color-text: #1c1b1b;
+  --color-muted: #444748;
+  --color-faint: #747878;
+  --color-border: #e5e2e1;
+  --color-border-dim: #c4c7c7;
+  --color-accent-green: #4a8c6f;
+
+  /* ── Spacing ──────────────────────────────────────────────── */
+  --spacing-section: 8rem;
+  --spacing-section-sm: 6rem;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Lenis controls scroll behavior */
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: #fdf8f8;
+    color: #1c1b1b;
+    font-family: var(--font-inter, "Inter", system-ui, -apple-system, sans-serif);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fdf8f8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e5e2e1;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #747878;
+  }
+
+  /* Text selection */
+  ::selection {
+    background-color: #1c1b1b;
+    color: #fdf8f8;
+  }
+}
+
+/* Font family utilities for Tailwind v4 */
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-playfair, "Playfair Display", Georgia, serif);
+  }
+  .font-sans {
+    font-family: var(--font-inter, "Inter", system-ui, -apple-system, sans-serif);
+  }
+}
