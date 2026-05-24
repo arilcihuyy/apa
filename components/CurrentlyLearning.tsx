@@ -1,7 +1,11 @@
+"use client";
+
 import AnimatedSection from "@/components/AnimatedSection";
-import { SKILL_TAGS } from "@/lib/constants";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function CurrentlyLearning() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="currently"
@@ -13,25 +17,23 @@ export default function CurrentlyLearning() {
             {/* Text side */}
             <div className="flex-1">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#747878] mb-6">
-                Currently Learning
+                {t.currently.eyebrow}
               </p>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#1c1b1b] leading-[1.2] mb-6">
-                Learning, building,<br className="hidden md:block" /> one step at a time.
+                {t.currently.heading}
               </h2>
               <p className="text-[17px] leading-[1.75] text-[#444748] max-w-lg">
-                Right now, I&rsquo;m learning more about AI coding tools, web
-                development, and practical tech projects. My goal is to build
-                useful things while improving step by step.
+                {t.currently.body}
               </p>
             </div>
 
             {/* Tags side */}
             <div className="flex-shrink-0">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#747878] mb-6">
-                Skills in progress
+                {t.currently.skillsEyebrow}
               </p>
               <div className="flex flex-wrap gap-3 max-w-xs">
-                {SKILL_TAGS.map((tag) => (
+                {t.currently.skills.map((tag) => (
                   <span
                     key={tag}
                     className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#1c1b1b] border border-[#c4c7c7] px-4 py-2.5 hover:border-[#1c1b1b] transition-colors duration-200"

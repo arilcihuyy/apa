@@ -3,10 +3,27 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/lib/constants";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const getNavLinkLabel = (href: string) => {
+    switch (href) {
+      case "#about":
+        return t.nav.about;
+      case "#interests":
+        return t.nav.interests;
+      case "#currently":
+        return t.nav.currently;
+      case "#socials":
+        return t.nav.socials;
+      default:
+        return "";
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -43,7 +60,7 @@ export default function Header() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          Cibuyy
+          Aril
         </a>
 
         {/* Desktop Nav */}
@@ -55,16 +72,38 @@ export default function Header() {
               onClick={(e) => handleNavClick(e, link.href)}
               className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#444748] hover:text-[#1c1b1b] transition-colors duration-200 relative group"
             >
-              {link.label}
+              {getNavLinkLabel(link.href)}
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#1c1b1b] transition-all duration-250 group-hover:w-full" />
             </a>
           ))}
+
+          {/* Language Switcher */}
+          <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#747878]">
+            <button
+              onClick={() => setLanguage("id")}
+              className={`hover:text-[#1c1b1b] transition-colors duration-200 ${
+                language === "id" ? "text-[#1c1b1b] underline underline-offset-4" : ""
+              }`}
+            >
+              ID
+            </button>
+            <span className="text-[#c4c7c7] select-none">/</span>
+            <button
+              onClick={() => setLanguage("en")}
+              className={`hover:text-[#1c1b1b] transition-colors duration-200 ${
+                language === "en" ? "text-[#1c1b1b] underline underline-offset-4" : ""
+              }`}
+            >
+              EN
+            </button>
+          </div>
+
           <a
             href="#socials"
             onClick={(e) => handleNavClick(e, "#socials")}
             className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1c1b1b] border border-[#1c1b1b] px-4 py-2 hover:bg-[#1c1b1b] hover:text-[#fdf8f8] transition-all duration-200"
           >
-            Contact
+            {t.nav.contact}
           </a>
         </nav>
 
@@ -114,7 +153,7 @@ export default function Header() {
                   transition={{ delay: i * 0.05 }}
                   className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#444748] hover:text-[#1c1b1b] py-2 border-b border-[#e5e2e1] transition-colors"
                 >
-                  {link.label}
+                  {getNavLinkLabel(link.href)}
                 </motion.a>
               ))}
               <a
@@ -122,8 +161,29 @@ export default function Header() {
                 onClick={(e) => handleNavClick(e, "#socials")}
                 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1c1b1b] border border-[#1c1b1b] px-4 py-3 text-center hover:bg-[#1c1b1b] hover:text-[#fdf8f8] transition-all duration-200 mt-2"
               >
-                Contact
+                {t.nav.contact}
               </a>
+
+              {/* Mobile Language Switcher */}
+              <div className="flex items-center justify-center gap-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#747878] mt-4 pt-4 border-t border-[#e5e2e1]">
+                <button
+                  onClick={() => setLanguage("id")}
+                  className={`hover:text-[#1c1b1b] py-2 transition-colors duration-200 ${
+                    language === "id" ? "text-[#1c1b1b] underline underline-offset-4" : ""
+                  }`}
+                >
+                  ID
+                </button>
+                <span className="text-[#c4c7c7] select-none">|</span>
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`hover:text-[#1c1b1b] py-2 transition-colors duration-200 ${
+                    language === "en" ? "text-[#1c1b1b] underline underline-offset-4" : ""
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
             </nav>
           </motion.div>
         )}

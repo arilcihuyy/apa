@@ -1,6 +1,11 @@
+"use client";
+
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="about"
@@ -10,22 +15,17 @@ export default function About() {
         {/* Left label column */}
         <AnimatedSection className="md:col-span-4 lg:col-span-3" delay={0}>
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#747878]">
-            A little about me
+            {t.about.eyebrow}
           </p>
         </AnimatedSection>
 
         {/* Right content column */}
         <AnimatedSection className="md:col-span-8 lg:col-span-9" delay={0.15}>
           <p className="font-serif text-2xl md:text-[28px] leading-[1.45] text-[#1c1b1b] mb-6 max-w-2xl">
-            I&rsquo;m interested in technology, AI tools, creative digital
-            experiments, gaming, and learning how things work.
+            {t.about.heading}
           </p>
           <p className="text-[17px] leading-[1.75] text-[#444748] max-w-xl">
-            I enjoy testing new tools, understanding systems, and slowly
-            building practical skills through small projects and experiments.
-            There&rsquo;s something satisfying about taking something complex
-            and making it simple — whether that&rsquo;s a workflow, a concept,
-            or a piece of code.
+            {t.about.body}
           </p>
         </AnimatedSection>
       </div>

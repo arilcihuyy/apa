@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cibuyy | Personal Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Inter:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary-fixed-dim": "#cac6c4",
+                "surface-container": "#f1edec",
+                "on-secondary-fixed-variant": "#3c475a",
+                "tertiary-container": "#1c1b1a",
+                "secondary-fixed": "#d8e3fa",
+                "on-error-container": "#93000a",
+                "secondary-fixed-dim": "#bcc7dd",
+                "on-surface": "#1c1b1b",
+                "inverse-surface": "#313030",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "primary-fixed": "#e5e2e1",
+                "surface-bright": "#fdf8f8",
+                "on-error": "#ffffff",
+                "on-tertiary-fixed-variant": "#484645",
+                "inverse-on-surface": "#f4f0ef",
+                "surface-container-low": "#f7f3f2",
+                "secondary": "#545f72",
+                "on-surface-variant": "#444748",
+                "surface-container-highest": "#e5e2e1",
+                "surface-tint": "#5f5e5e",
+                "secondary-container": "#d5e0f7",
+                "on-primary-container": "#858383",
+                "tertiary": "#000000",
+                "on-secondary-container": "#586377",
+                "tertiary-fixed": "#e6e2df",
+                "on-tertiary-container": "#868382",
+                "surface-dim": "#ddd9d8",
+                "outline-variant": "#c4c7c7",
+                "on-primary-fixed-variant": "#474746",
+                "inverse-primary": "#c8c6c5",
+                "on-tertiary": "#ffffff",
+                "background": "#fdf8f8",
+                "primary-container": "#1c1b1b",
+                "error-container": "#ffdad6",
+                "primary-fixed-dim": "#c8c6c5",
+                "on-secondary-fixed": "#111c2c",
+                "on-primary-fixed": "#1c1b1b",
+                "surface-container-lowest": "#ffffff",
+                "outline": "#747878",
+                "surface-variant": "#e5e2e1",
+                "on-background": "#1c1b1b",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#1c1b1a",
+                "surface": "#fdf8f8",
+                "primary": "#000000",
+                "surface-container-high": "#ebe7e6"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-page-mobile": "20px",
+                "gutter": "24px",
+                "section-gap": "120px",
+                "margin-page": "40px",
+                "unit": "8px"
+            },
+            "fontFamily": {
+                "body-sm": ["Inter"],
+                "label-caps": ["Inter"],
+                "body-md": ["Inter"],
+                "headline-sm": ["Playfair Display"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Playfair Display"],
+                "display-lg-mobile": ["Playfair Display"],
+                "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                "body-sm": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #fdf8f8;
+            color: #1c1b1b;
+            -webkit-font-smoothing: antialiased;
+        }
+        .editorial-border {
+            border-top: 1px solid #e5e2e1;
+        }
+        .btn-editorial {
+            border: 1px solid #000000;
+            padding: 0.75rem 2rem;
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+        }
+        .btn-editorial:hover {
+            background-color: #000000;
+            color: #fdf8f8;
+        }
+        .link-editorial {
+            position: relative;
+            display: inline-block;
+        }
+        .link-editorial::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .link-editorial:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 bg-surface dark:bg-surface border-b border-outline-variant flat no shadows z-50">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-page py-6">
+<a class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed-dim" href="#">Cibuyy</a>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8 font-label-caps text-label-caps uppercase tracking-widest">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#interests">Interests</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b border-primary dark:border-primary-fixed-dim pb-1 cursor-pointer" href="#contact">Contact</a>
+</nav>
+<!-- Mobile Nav Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-margin-page">
+<!-- Hero Section -->
+<section class="py-section-gap flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 order-2 md:order-1">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-primary">Hi, I’m Cibuyy.</h1>
+<p class="font-headline-sm text-headline-sm mb-4 text-on-surface-variant italic">
+                    A tech learner exploring AI tools, games, creative ideas, and the digital world.
+                </p>
+<p class="font-body-lg text-body-lg mb-10 max-w-xl text-on-surface-variant">
+                    I use this space to introduce myself, share what I’m currently learning, and collect my social links in one simple place.
+                </p>
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-8">
+<button class="btn-editorial font-label-caps text-label-caps">CONTACT ME</button>
+<a class="font-label-caps text-label-caps link-editorial text-on-surface-variant" href="#socials">VIEW SOCIALS</a>
+</div>
+</div>
+<div class="flex-shrink-0 order-1 md:order-2">
+<div class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low overflow-hidden group">
+<span class="font-display-lg text-display-lg text-primary-fixed-dim group-hover:scale-110 transition-transform duration-500">C</span>
+</div>
+</div>
+</section>
+<!-- About Me Section -->
+<section class="py-section-gap editorial-border" id="about">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<h2 class="font-label-caps text-label-caps uppercase text-primary-container mb-4">The Persona</h2>
+</div>
+<div class="md:col-span-8">
+<p class="font-headline-sm text-headline-sm leading-relaxed text-on-surface">
+                        Driven by a quiet curiosity for how systems work, I spend my time navigating the intersection of technology and creativity. Whether I'm testing the limits of new AI prompts or diving into the lore of a complex game, my approach is always rooted in hands-on experimentation. I believe the digital world is a vast canvas for learning, and I’m constantly refining my toolkit to build practical, thoughtful projects.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Interests Section -->
+<section class="py-section-gap editorial-border" id="interests">
+<div class="flex justify-between items-end mb-16">
+<h2 class="font-label-caps text-label-caps uppercase text-primary-container">Areas of Focus</h2>
+<div class="h-[1px] flex-grow mx-8 bg-outline-variant hidden md:block"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-gutter">
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-on-primary-container">01</span>
+<h3 class="font-headline-sm text-headline-sm">AI Tools</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Mastering the workflow of generative engines and large language models for efficiency.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-on-primary-container">02</span>
+<h3 class="font-headline-sm text-headline-sm">Gaming</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Analyzing mechanics and narrative structures in modern interactive experiences.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-on-primary-container">03</span>
+<h3 class="font-headline-sm text-headline-sm">Creative Prompts</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Curating specific linguistic frameworks to push the boundaries of digital generation.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-on-primary-container">04</span>
+<h3 class="font-headline-sm text-headline-sm">Web3 / NFTs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Exploring decentralized ownership models and the evolution of digital assets.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-on-primary-container">05</span>
+<h3 class="font-headline-sm text-headline-sm">Tech Learning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A commitment to perpetual upskilling in a rapidly shifting technological landscape.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-on-primary-container">06</span>
+<h3 class="font-headline-sm text-headline-sm">Networking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Building meaningful connections with fellow creators and digital pioneers.</p>
+</div>
+</div>
+</section>
+<!-- Currently Learning Section -->
+<section class="py-section-gap editorial-border">
+<div class="bg-surface-container-low p-12 md:p-24 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+<div class="flex-1">
+<h2 class="font-label-caps text-label-caps uppercase text-primary-container mb-6">Current Sprint</h2>
+<h3 class="font-display-lg text-display-lg-mobile md:text-headline-md mb-6">Bridging Code and AI.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                        Right now, I am deep-diving into AI-assisted coding tools and modern web development frameworks. My goal is to move from theoretical knowledge to building practical, deployment-ready projects that solve everyday problems.
+                    </p>
+</div>
+<div class="flex flex-wrap justify-center gap-4 max-w-xs">
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-label-caps">TYPESCRIPT</span>
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-label-caps">NEXT.JS</span>
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-label-caps">PYTHON</span>
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-label-caps">LLM API</span>
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-label-caps">TAILWIND</span>
+</div>
+</div>
+</section>
+<!-- Social Links Section -->
+<section class="py-section-gap editorial-border" id="socials">
+<h2 class="font-label-caps text-label-caps uppercase text-primary-container mb-12 text-center">Find Me Online</h2>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-8 font-headline-sm text-headline-sm">
+<a class="link-editorial" href="#">X / Twitter</a>
+<a class="link-editorial" href="#">GitHub</a>
+<a class="link-editorial" href="#">Discord</a>
+<a class="link-editorial" href="#">Instagram</a>
+<a class="link-editorial" href="#">Email</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface dark:bg-surface border-t border-outline-variant flat no shadows mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-margin-page py-12">
+<div class="flex flex-col md:flex-row items-center gap-4 mb-8 md:mb-0">
+<span class="font-headline-sm text-headline-sm text-primary">Cibuyy</span>
+<span class="hidden md:block text-outline-variant">|</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Cibuyy. Personal space on the internet.</p>
+</div>
+<div class="flex gap-8 font-body-sm text-body-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<!-- Simple Interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll for anchors
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Reveal animations on scroll
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-10');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>

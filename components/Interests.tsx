@@ -1,7 +1,11 @@
+"use client";
+
 import AnimatedSection from "@/components/AnimatedSection";
-import { INTEREST_ITEMS } from "@/lib/constants";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Interests() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="interests"
@@ -10,14 +14,14 @@ export default function Interests() {
       {/* Section header */}
       <AnimatedSection className="flex items-center gap-6 mb-16" delay={0}>
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#747878] whitespace-nowrap">
-          Areas of Focus
+          {t.interests.eyebrow}
         </p>
         <div className="h-px flex-1 bg-[#e5e2e1]" />
       </AnimatedSection>
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {INTEREST_ITEMS.map((item, i) => (
+        {t.interests.items.map((item, i) => (
           <AnimatedSection key={item.number} delay={i * 0.07}>
             <div className="border-t border-[#e5e2e1] py-8 pr-8 group">
               <span className="text-[11px] font-semibold tracking-[0.1em] text-[#c4c7c7] block mb-4">

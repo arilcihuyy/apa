@@ -61,9 +61,8 @@ export const SKILL_TAGS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { label: "X / Twitter", href: "https://twitter.com/cibuyy" },
-  { label: "GitHub", href: "https://github.com/cibuyy" },
-  { label: "Discord", href: "#" },
-  { label: "Instagram", href: "https://instagram.com/cibuyy" },
-  { label: "Email", href: "mailto:hi@cibuyy.com" },
+  { label: "X / Twitter", href: "https://twitter.com/0xAril27" },
+  { label: "GitHub", href: "https://github.com/" },
+  { label: "Instagram", href: "https://instagram.com/arilpengensukses777" },
+  { label: "Email", href: "mailto:testcuy44@gmail.com" },
 ];

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "@/app/globals.css";
 import LenisProvider from "@/components/LenisProvider";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -18,11 +19,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cibuyy — Personal Space on the Internet",
+  title: "Aril — Personal Space on the Internet",
   description:
-    "Hi, I'm Cibuyy. A tech learner from Indonesia exploring AI tools, games, creative ideas, and web development.",
+    "Hi, I'm Aril. A tech learner from Indonesia exploring AI tools, games, creative ideas, and web development.",
   keywords: [
-    "Cibuyy",
+    "Aril",
     "personal website",
     "tech learner",
     "AI tools",
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
     "Indonesia",
     "gaming",
   ],
-  authors: [{ name: "Cibuyy" }],
+  authors: [{ name: "Aril" }],
   openGraph: {
-    title: "Cibuyy — Personal Space on the Internet",
+    title: "Aril — Personal Space on the Internet",
     description:
       "A tech learner from Indonesia exploring AI tools, games, creative ideas, and web development.",
     type: "website",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Cibuyy — Personal Space on the Internet",
+    title: "Aril — Personal Space on the Internet",
     description:
       "A tech learner from Indonesia exploring AI tools, games, creative ideas, and web development.",
   },
@@ -61,7 +62,9 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable}`}
     >
       <body style={{ fontFamily: "var(--font-inter, Inter, system-ui, sans-serif)" }}>
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </LenisProvider>
       </body>
     </html>
   );

@@ -1,7 +1,12 @@
+"use client";
+
 import AnimatedSection from "@/components/AnimatedSection";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function SocialLinks() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="socials"
@@ -10,10 +15,10 @@ export default function SocialLinks() {
       {/* Header */}
       <AnimatedSection delay={0} className="mb-16 md:mb-20">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#747878] text-center mb-4">
-          Find Me Online
+          {t.socials.eyebrow}
         </p>
         <p className="text-center text-[17px] text-[#444748] max-w-sm mx-auto">
-          Connect, follow, or say hello — I&rsquo;m easy to find.
+          {t.socials.subheading}
         </p>
       </AnimatedSection>
 
@@ -31,7 +36,7 @@ export default function SocialLinks() {
                 {link.label}
               </span>
               <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#747878] group-hover:text-[#1c1b1b] group-hover:translate-x-1 transition-all duration-200">
-                Visit →
+                {t.socials.visit}
               </span>
             </a>
           </AnimatedSection>
