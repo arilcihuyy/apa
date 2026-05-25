@@ -41,7 +41,12 @@ const fadeUp = (delay: number): Variants => ({
 // Fix 3: SSR-safe scroll helper
 function scrollTo(id: string) {
   if (typeof window === "undefined") return;
-  document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  const lenis = (window as any).lenis;
+  if (lenis) {
+    lenis.scrollTo(id, { offset: -80 });
+  } else {
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 export default function Hero() {
