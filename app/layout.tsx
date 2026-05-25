@@ -19,9 +19,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aril — Personal Space on the Internet",
+  metadataBase: new URL("https://apa-amber.vercel.app/"),
+  title: "Aril — Personal Space",
   description:
-    "Hi, I'm Aril. A tech learner from Indonesia exploring AI tools, games, creative ideas, and web development.",
+    "Personal website of Aril, a tech learner exploring AI tools, games, creative ideas, and web development.",
   keywords: [
     "Aril",
     "personal website",
@@ -33,17 +34,19 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Aril" }],
   openGraph: {
-    title: "Aril — Personal Space on the Internet",
+    title: "Aril — Personal Space",
     description:
-      "A tech learner from Indonesia exploring AI tools, games, creative ideas, and web development.",
-    type: "website",
+      "Personal website of Aril, a tech learner exploring AI tools, games, creative ideas, and web development.",
+    url: "https://apa-amber.vercel.app/",
+    siteName: "Aril — Personal Space",
     locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: "summary",
-    title: "Aril — Personal Space on the Internet",
+    card: "summary_large_image",
+    title: "Aril — Personal Space",
     description:
-      "A tech learner from Indonesia exploring AI tools, games, creative ideas, and web development.",
+      "Personal website of Aril, a tech learner exploring AI tools, games, creative ideas, and web development.",
   },
   robots: {
     index: true,
